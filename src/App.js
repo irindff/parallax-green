@@ -30,10 +30,7 @@ import elementsCombo from './assets/imgs/elementsCombo.png';
 import elements from './assets/imgs/elements.png';
 import raspberry from './assets/imgs/raspberry.png';
 import mask from './assets/imgs/mask.png';
-// ------------------- Fonts ----------------------------
-require('./assets/fonts/styles/josefin_sans.scss');
-require('./assets/fonts/styles/lilita_one.scss');
-require('./assets/fonts/styles/open_sans.scss');
+
 // --------------------- AND ---------------------------
 
 

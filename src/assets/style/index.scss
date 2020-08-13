@@ -1,5 +1,7 @@
 @import "fluid_typography.scss";
-
+@import "src/assets/fonts/styles/lilita_one";
+@import "src/assets/fonts/styles/josefin_sans";
+@import "src/assets/fonts/styles/open_sans";
 $bounce_animation_duration: 1.1s;
 @mixin fade-transition($element) {
   -webkit-transition: $element 0.15s ease-in-out;
