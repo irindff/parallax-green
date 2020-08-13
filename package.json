@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.8",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.5.2",
+    "lodash": "^4.17.19",
+    "node-sass": "^4.14.1",
+    "parallax-js": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-textfit": "^1.1.0",
+    "showdown": "^1.9.1",
+    "superagent": "^6.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

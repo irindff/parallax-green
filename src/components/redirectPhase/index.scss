@@ -1,0 +1,126 @@
+@import "../../assets/style/fluid_typography.scss";
+// ------------- mixins  ---------------\
+@mixin col($num) {
+  @if $num != 'auto' {
+    flex: 0 0 8.33333%*$num;
+    max-width: 8.33333%*$num;
+    flex-shrink: 1;
+  } @else {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+}
+
+
+//***** Variables *****//
+$header_fontFamily: 'Lilita One', cursive;
+$header_fontWeight: 400;
+$header_color: #ffffff;
+
+$sub_header_fontFamily: 'Josefin Sans', sans-serif;
+$sub_header_fontWeight: 700;
+$sub_header_color: #ffde98;
+
+.redirectPhase {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 16px;
+  align-content: center;
+  //------------------------- Portraits: -------------------------//
+  // All portrait sizes
+  @media (orientation: portrait) {
+    //max-width: 400px;
+  }
+  // Medium devices (portrait tablets, 768px and up)
+  @media (orientation: portrait) and (min-width: 760px) {
+    width: 80%;
+    max-width: 620px;
+
+  }
+
+  //------------------------- Landscape: -------------------------//
+  // All landscape sizes
+  @media (orientation: landscape) {
+    width: 100%;
+    //max-width: 530px;
+    //max-width: 700px;
+  }
+
+  &-content {
+    position: relative;
+    text-align: center;
+    margin-bottom: 29vh;
+
+    // Medium devices (portrait tablets, 768px and up)
+    @media (orientation: portrait) and (min-width: 760px ) {
+      margin: 25% auto;
+    }
+    // Large devices (portrait tablets, 1024px and up)
+    @media (orientation: portrait) and (min-width: 1020px) {
+      margin: 40% auto 0;
+    }
+
+    //------------------------- Landscape: -------------------------//
+    // All landscape sizes
+    @media (orientation: landscape) {
+      margin: 15% auto;
+    }
+    // Extra Large devices (large desktops, 1200px and up)
+    @media (min-width: 1400px) {
+      margin: 0 auto 10%;
+    }
+
+
+    & .header {
+      font-family: $header_fontFamily;
+      color: $header_color;
+      font-size: 3.5em;
+      line-height: 1.2;
+      //------------------------- Portraits: -------------------------//
+      // Large devices (portrait tablets, 1024px and up)
+      @media (orientation: portrait) and (min-width: 1020px) {
+        font-size: 95px;
+      }
+
+      //------------------------- Landscape: -------------------------//
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        font-size: 95px;
+      }
+    }
+
+    & .subHeader {
+      font-family: $sub_header_fontFamily;
+      font-weight: $sub_header_fontWeight;
+      color: $sub_header_color;
+      font-size: 1.3em;
+      //------------------------- Portraits: -------------------------//
+      // Large devices (portrait tablets, 1024px and up)
+      @media (orientation: portrait) and (min-width: 1020px) {
+        font-size: 37px;
+      }
+      //------------------------- Landscape: -------------------------//
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        font-size: 37px;
+      }
+      & .brand {
+        text-transform: uppercase;
+
+      }
+    }
+
+
+
+
+  }
+
+
+}
+
+

@@ -1,0 +1,1211 @@
+@import "fluid_typography.scss";
+
+$bounce_animation_duration: 1.1s;
+@mixin fade-transition($element) {
+  -webkit-transition: $element 0.15s ease-in-out;
+  -moz-transition: $element 0.15s ease-in-out;
+  -ms-transition: $element 0.15s ease-in-out;
+  -o-transition: $element 0.15s ease-in-out;
+  transition: $element 0.15s ease-in-out;
+}
+
+*, p {
+  padding: 0;
+  margin: 0;
+  z-index: initial;
+}
+
+html, body {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #131313;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+
+  & .topBg {
+    height: 65vh;
+    width: 100vw;
+    background-image: url("../../assets/imgs/bg.png");
+    background-position-x: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    //------------------------- Landscape: -------------------------//
+    // All landscape sizes
+    @media (orientation: landscape) {
+      height: 100vh;
+    }
+
+    // Common Small Mobile devices (landscape phones, 736 and up)
+    @media (orientation: landscape) and (min-width: 736px) {
+      height: 90vh;
+      background-image: url("../../assets/imgs/bg.png");
+      background-size: 100%;
+      background-position: top center;
+    }
+    // Medium devices (landscape tablets and desktops, 960px and up)
+    @media (orientation: landscape) and (min-width: 950px) {
+      height: 80vh;
+      background-size: cover;
+    }
+    // Medium devices (landscape tablets and desktops, 960px and up)
+    @media (orientation: landscape) and (min-width: 950px) and (min-height: 460px) {
+      height: 60vh;
+      background-size: cover;
+    }
+    // Extra Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+      height: 70vh;
+      background-image: url("../../assets/imgs/bg.png");
+      background-size: cover;
+      background-position: top center;
+    }
+
+    & .willOTheWisps {
+      display: none;
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      //------------------------- Landscape: -------------------------//
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        display: block;
+      }
+
+      & .wisp {
+        position: absolute;
+        background-image: url("../../assets/imgs/willothewisp.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        animation: blink-2 5s infinite both;
+        z-index: 100;
+        width: 75px;
+        height: 75px;
+        //------------------------- Landscape: -------------------------//
+        // Medium devices (landscape tablets and desktops, 960px and up)
+        @media (orientation: landscape) and (min-width: 950px) {
+          width: 50px;
+          height: 50px;
+        }
+
+        &-1 {
+          left: 15%;
+          bottom: 35%;
+          -webkit-animation: blink-2 5s random(8000)+ms infinite both;
+          animation: blink-2 5s random(8000)+ms infinite both;
+          //------------------------- Landscape: -------------------------//
+          // Medium devices (landscape tablets and desktops, 960px and up)
+          @media (orientation: landscape) and (min-width: 950px) {
+            bottom: 45%;
+          }
+        }
+
+        &-2 {
+          right: 15%;
+          top: 35%;
+          -webkit-animation: blink-2 5s random(8000)+ms infinite both;
+          animation: blink-2 5s random(8000)+ms infinite both;
+        }
+
+        &-3 {
+          right: 35%;
+          top: 1%;
+          -webkit-animation: blink-2 5s random(8000)+ms infinite both;
+          animation: blink-2 5s random(8000)+ms infinite both;
+
+          //------------------------- Landscape: -------------------------//
+          // Medium devices (landscape tablets and desktops, 960px and up)
+          @media (orientation: landscape) and (min-width: 950px) {
+            right: 5%;
+          }
+
+        }
+
+        &-4 {
+          left: 5%;
+          top: 25%;
+          -webkit-animation: blink-2 5s random(8000)+ms infinite both;
+          animation: blink-2 5s random(8000)+ms infinite both;
+          //------------------------- Landscape: -------------------------//
+          // Medium devices (landscape tablets and desktops, 960px and up)
+          @media (orientation: landscape) and (min-width: 950px) {
+            left: 27%;
+            top: 5%;
+          }
+        }
+      }
+    }
+
+    & .liane {
+      display: none;
+      z-index: 1;
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 113%;
+      width: 100%;
+      max-width: 500px;
+      top: 0;
+      //------------------------- Portraits: -------------------------//
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        display: block;
+        background-image: url("../../assets/imgs/liane_flip.png");
+        background-size: 100%;
+        height: 120%;
+        right: -10%;
+        width: 55%;
+      }
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        width: 50%;
+        right: -15%;
+      }
+      // Large devices (portrait tablets, 1024px and up)
+      @media (orientation: portrait) and (min-width: 1020px) {
+        right: -15%;
+      }
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        z-index: 22;
+        display: block;
+        background-image: url("../../assets/imgs/liane.png");
+        height: 113%;
+        width: 100%;
+        top: 0;
+        left: -2.5%;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        height: 120%;
+        left: -5%;
+        top: -5%;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {;
+        height: 113%;
+        top: 0;
+      }
+      @media (min-width: 2000px) {
+        height: 113%;
+        left: -3%;
+        background-size: cover;
+        max-width: 600px;
+      }
+    }
+
+    & .leaves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      overflow: hidden;
+
+      & .leaves_mob {
+        z-index: 30;
+        background: url('../../assets/imgs/leaves_mob.png') 0 0 no-repeat;
+        background-size: 70%;
+        background-position-y: bottom;
+        height: 294px;
+        position: absolute;
+        width: 100%;
+        max-width: 260px;
+        left: -10%;
+        bottom: -3%;
+        -webkit-animation: wobble-hor-bottom 13s infinite both;
+        animation: wobble-hor-bottom 13s infinite both;
+        //------------------------- Portraits: -------------------------//
+        // Small tablet devices (portrait tablets, 601px and up)
+        @media (orientation: portrait) and (min-width: 600px) {
+          left: -5%;
+          background-size: 75%;
+        }
+
+        // Medium devices (portrait tablets, 768px and up)
+        @media (orientation: portrait) and (min-width: 760px) {
+          background-size: 90%;
+        }
+        // Large devices (portrait tablets, 1024px and up)
+        @media (orientation: portrait) and (min-width: 1020px) {
+          background-size: 100%;
+        }
+
+        //------------------------- Landscape: -------------------------//
+        // All landscape sizes
+        @media (orientation: landscape) {
+          display: none;
+        }
+      }
+
+      & .leaves_2 {
+        display: block;
+        background: url('../../assets/imgs/leaves_2.png') 0 0 repeat-x;
+        height: 150px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: -5px;
+        -webkit-animation: shake-horizontal 13s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+        animation: shake-horizontal 13s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+        //------------------------- Portraits: -------------------------//
+
+
+        //------------------------- Landscape: -------------------------//
+        // All landscape sizes
+        @media (orientation: landscape) {
+          display: block;
+          height: 160px;
+        }
+        // Medium devices (landscape tablets and desktops, 960px and up)
+        @media (orientation: landscape) and (min-width: 950px) {
+          background-size: contain;
+          height: 150px;
+          bottom: -70px;
+        }
+
+        // Extra Large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) {
+          //height: 230px;
+          bottom: -40px;
+        }
+      }
+
+      & .leaves_3 {
+        background: url('../../assets/imgs/leaves_3.png') 0 0 repeat-x;
+        height: 150px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: -5px;
+        //z-index: 10;
+        -webkit-animation: shake-horizontal 13s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1.5s infinite both;
+        animation: shake-horizontal 13s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1.5s infinite both;
+        //------------------------- Portraits: -------------------------//
+        // Small tablet devices (portrait tablets, 601px and up)
+        @media (orientation: portrait) and (min-width: 600px) {
+          //height: 200px;
+          //bottom: -15px;
+        }
+
+        //------------------------- Landscape: -------------------------//
+        // All landscape sizes
+        @media (orientation: landscape) {
+          z-index: 10;
+          height: 180px;
+          bottom: -15px;
+        }
+        // Medium devices (landscape tablets and desktops, 960px and up)
+        @media (orientation: landscape) and (min-width: 950px) {
+          background-size: contain;
+          height: 100px;
+          bottom: -30px;
+        }
+
+        // Extra Large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) {
+          //height: 200px;
+          bottom: 0;
+        }
+
+      }
+    }
+
+
+    & .content {
+      z-index: 1000;
+      max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      //------------------------- Portraits: -------------------------//
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        padding-top: 2em;
+      }
+
+      // Large devices (portrait tablets, 1024px and up)
+      @media (orientation: portrait) and (min-width: 1020px) {
+        padding-top: 4em;
+      }
+
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        max-width: 600px;
+        margin: 1.5em auto 0;
+        //display: none;
+      }
+
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        max-width: 450px;
+        margin: 1.5em auto 0;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) and (min-height: 460px) {
+        max-width: 600px;
+        margin: 1.5em auto 0;
+      }
+      @media (min-width: 2000px) {
+        max-width: 800px;
+        margin: 5.5em auto 0;
+      }
+
+      & .texts {
+        user-select: none;
+        z-index: 1000;
+        text-align: center;
+        margin: 2.5em auto 0;
+        line-height: 1.3;
+        width: 95%;
+        //------------------------- Landscape: -------------------------//
+        // All landscape sizes
+        @media (orientation: landscape) {
+          margin: 1.5em auto 0;
+        }
+        // Medium devices (landscape tablets and desktops, 960px and up)
+        @media (orientation: landscape) and (min-width: 950px) {
+          margin: 1.5em auto 0;
+        }
+
+      }
+
+      & .text1 {
+        user-select: none;
+        z-index: 1000;
+        text-align: center;
+        margin: 1em auto 0;
+        line-height: 1.3;
+        width: 95%;
+        color: #ffde98;
+        font-weight: 400;
+        font-family: 'Josefin Sans', sans-serif;
+        text-shadow: 0px 3px 0 rgba(0, 0, 0, 0.35);
+        @include responsive-font(2.7vw, 24px, 45px);
+        //------------------------- Landscape: -------------------------//
+        // All landscape sizes
+        @media (orientation: landscape) {
+          margin: 0 auto;
+        }
+        // Medium devices (landscape tablets and desktops, 960px and up)
+        @media (min-width: 950px) and (max-height: 700px) {
+          font-size: 2.4vw;
+        }
+
+        @media (min-width: 2000px) {
+          font-size: 55px;
+        }
+      }
+    }
+
+  }
+
+  & .text4 {
+    user-select: none;
+    z-index: 1000;
+    text-align: center;
+    margin: 1em auto 0;
+    line-height: 1.3;
+    width: 95%;
+    font-family: 'Lilita One', cursive;
+    font-weight: 400;
+    //color: #ffffffa1;
+    color: #818182;
+    @include responsive-font(2.7vw, 19px, 20px);
+    //------------------------- Landscape: -------------------------//
+    // All landscape sizes
+    @media (orientation: landscape) {
+      margin: 1.5em auto 0;
+    }
+    // Medium devices (landscape tablets and desktops, 960px and up)
+    @media (orientation: landscape) and (min-width: 950px) {
+      margin: 1.5em auto 0;
+    }
+  }
+
+  & .offersCover {
+    z-index: 20;
+    width: 85%;
+    padding: 1em 0;
+    margin: 0 auto;
+    //background-color: #131313;
+    //------------------------- Landscape: -------------------------//
+    // All landscape sizes
+    @media (orientation: landscape) {
+      width: 75%;
+      margin: 0 auto 2em;
+    }
+    // Extra Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+      //margin: 2em auto;
+    }
+
+
+    & img {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  & .elements {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+
+    & .scene {
+      position: absolute;
+      max-width: 100%;
+      height: fit-content;
+    }
+
+    & .bar_gem {
+      display: none;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: none;
+      }
+
+      // Common Small Mobile devices (landscape phones, 736 and up)
+      @media (orientation: landscape) and (min-width: 736px) {
+        display: block;
+        left: 17%;
+        top: 0;
+        max-width: 80px;
+        opacity: 1;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 100px;
+      }
+
+    }
+
+    & .seven_gem {
+      display: block;
+      max-width: 100px;
+      right: 0;
+      bottom: 2%;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      z-index: 10;
+      //------------------------- Portraits: -------------------------//
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        display: none;
+      }
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: block;
+        left: 10%;
+        top: 31%;
+        max-width: 70px;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 90px;
+      }
+
+    }
+
+    & .coins_1 {
+      display: none;
+      right: 0;
+      top: 0;
+      max-width: 120px;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      //------------------------- Portraits: -------------------------//
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        max-width: 100px;
+      }
+
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: block;
+        right: 10%;
+        top: -30px;
+        max-width: 110px;
+        opacity: 1;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 130px;
+      }
+
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 100px;
+      }
+    }
+
+    & .coins_2 {
+      display: block;
+      top: 0;
+      max-width: 100px;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      //------------------------- Portraits: -------------------------//
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        left: 0;
+      }
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        width: 100%;
+        max-width: 120px;
+      }
+      // Large devices (portrait tablets, 1024px and up)
+      @media (orientation: portrait) and (min-width: 1020px) {
+        max-width: 180px;
+      }
+
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: block;
+        right: 5%;
+        top: 33%;
+        max-width: 70px;
+        opacity: 1;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 110px;
+      }
+
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 90px;
+      }
+    }
+
+    & .coins_3 {
+      display: block;
+      right: 0;
+      top: 30%;
+      max-width: 55px;
+      opacity: 0.7;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      //------------------------- Portraits: -------------------------//
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        left: 0;
+      }
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        max-width: 70px;
+        left: 10%;
+      }
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: block;
+        right: 1%;
+        top: 9%;
+        max-width: 45px;
+        opacity: 1;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 65px;
+      }
+
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 50px;
+      }
+    }
+
+    & .mask {
+      display: none;
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: none;
+      }
+
+      // Common Small Mobile devices (landscape phones, 736 and up)
+      @media (orientation: landscape) and (min-width: 736px) {
+        display: block;
+        z-index: 21;
+        position: absolute;
+        height: 100%;
+        max-height: 152px;
+        width: 100%;
+        right: 10%;
+        bottom: -14%;
+        max-width: 150px;
+        -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+        animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        width: 100%;
+        max-width: 150px;
+        bottom: -10%;
+      }
+
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 220px;
+        bottom: 0;
+        right: 7%;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 180px;
+      }
+      @media (min-width: 2000px) {
+        max-width: 280px;
+        right: 5%;
+      }
+    }
+
+    & .lime {
+      display: none;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      z-index: 1;
+      //------------------------- Portraits: -------------------------//
+
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        display: block;
+        position: absolute;
+        max-width: 210px;
+        width: 100%;
+        right: 22%;
+        bottom: -3%;
+      }
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        right: 12%;
+        bottom: 0;
+        max-width: 250px;
+        z-index: 0;
+      }
+
+      // Large devices (portrait tablets, 1024px and up)
+      @media (orientation: portrait) and (min-width: 1020px) {
+        max-width: 350px;
+        right: 10%;
+      }
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: none;
+      }
+
+      // Common Small Mobile devices (landscape phones, 736 and up)
+      @media (orientation: landscape) and (min-width: 736px) {
+        position: absolute;
+        display: block;
+        z-index: 5;
+        max-width: 150px;
+        //bottom: 5px;
+        left: 5%;
+        top: 52%;
+
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        width: 100%;
+        max-width: 200px;
+        left: 7%;
+        top: 55%;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 280px;
+        left: 10%;
+        top: 60%;
+      }
+      // Extra Large devices (large desktops, 1400px and up)
+      @media (min-width: 1400px) {
+        max-width: 280px;
+        left: 5%;
+        top: 60%;
+      }
+      // Super Large devices (large desktops, 2000px and up)
+      @media (min-width: 2000px) {
+        max-width: 350px;
+        left: 4%;
+        top: 60%;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 230px;
+        left: 4%;
+        top: 55%;
+      }
+
+      & img {
+        //------------------------- Portraits: -------------------------//
+        // All portrait sizes
+        @media (orientation: portrait) {
+          transform: rotateY(180deg);
+        }
+      }
+    }
+
+    & .star_gem {
+      bottom: 0;
+      left: 4%;
+      max-width: 150px;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      z-index: 15;
+      //------------------------- Portraits: -------------------------//
+      // Small+ devices (portrait phones, 375px and up)
+      @media (orientation: portrait) and (min-width: 375px) {
+        bottom: 0;
+      }
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        max-width: 170px;
+      }
+      // Medium devices (portrait tablets, 768px and up)
+      @media (orientation: portrait) and (min-width: 760px) {
+        max-width: 200px;
+      }
+      // Large devices (portrait tablets, 1024px and up)
+      @media (orientation: portrait) and (min-width: 1020px) {
+
+      }
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: none;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        display: block;
+        width: 100%;
+        max-width: 60px;
+        bottom: 0;
+        left: 50%;
+        position: absolute;
+        z-index: 5;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 160px;
+        left: 30%;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 120px;
+      }
+    }
+
+    & .elementsCombo {
+      display: none;
+      -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: none;
+      }
+
+      // Common Small Mobile devices (landscape phones, 736 and up)
+      @media (orientation: landscape) and (min-width: 736px) {
+        position: absolute;
+        width: 100%;
+        display: block;
+        z-index: 22;
+        max-width: 150px;
+        bottom: -15%;
+        right: 0;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        max-width: 180px;
+        bottom: -10%;
+        right: -2%;
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 250px;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 190px;
+      }
+      @media (min-width: 2000px) {
+        max-width: 300px;
+        right: 0;
+      }
+    }
+
+    & .raspberry {
+      display: none;
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        display: none;
+      }
+
+      // Common Small Mobile devices (landscape phones, 736 and up)
+      @media (orientation: landscape) and (min-width: 736px) {
+        -webkit-animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+        animation: bounce-in-top $bounce_animation_duration random(2000)+ms both;
+        position: absolute;
+        width: 100%;
+        display: block;
+        z-index: 21;
+        max-width: 150px;
+        bottom: 0;
+        right: 0;
+        transform: translateX(-50%);
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (orientation: landscape) and (min-width: 950px) {
+        max-width: 180px;
+        right: -3%;
+      }
+
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+        max-width: 250px;
+      }
+      // Medium devices (landscape tablets and desktops, 960px and up)
+      @media (min-width: 950px) and (max-height: 700px) {
+        max-width: 190px;
+      }
+      @media (min-width: 2000px) {
+        max-width: 300px;
+        right: -1.5%;
+      }
+    }
+  }
+}
+
+.visible {
+  z-index: 20;
+  background: #131313;
+}
+
+/**
+ * ----------------------------------------
+ * animation bounce-in-top
+ * ----------------------------------------
+ */
+
+@-webkit-keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+    transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+    transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+    transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+    transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+    transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+    transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation shake-horizontal
+ * ----------------------------------------
+ */
+@-webkit-keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+
+
+/**
+ * ----------------------------------------
+ * animation wobble-hor-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation blink-2
+ * ----------------------------------------
+ */
+@-webkit-keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

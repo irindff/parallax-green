@@ -1,0 +1,362 @@
+@import "../../assets/style/fluid_typography.scss";
+// ------------- mixins  ---------------\
+@mixin col($num) {
+  @if $num != 'auto' {
+    flex: 0 0 8.33333%*$num;
+    max-width: 8.33333%*$num;
+    flex-shrink: 1;
+  } @else {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+}
+
+
+//***** Variables *****//
+$texts_fontFamily: 'Open Sans', sans-serif;
+$texts_fontWeight: 700;
+$texts_1_color: #ebeaea;
+$texts_color: #e8e8e8;
+
+$btn_bgColor: #ffe78b;
+$btn_color: #1e1226;
+$btn_fontFamily: 'Lilita One', cursive;
+$btn_fontWeight: 400;
+
+$terms_color: #717275;
+
+
+.dynamicTableContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 16px;
+  z-index: 100;
+  //------------------------- Portraits: -------------------------//
+  // All portrait sizes
+  @media (orientation: portrait) {
+    //max-width: 400px;
+  }
+  // Medium devices (portrait tablets, 768px and up)
+  @media (orientation: portrait) and (min-width: 760px) {
+    width: 80%;
+    max-width: 620px;
+
+  }
+
+  //------------------------- Landscape: -------------------------//
+  // All landscape sizes
+  @media (orientation: landscape) {
+    width: 100%;
+    max-width: 530px;
+  }
+
+
+  & .tableBody {
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    width: 100%;
+    //------------------------- Portraits: -------------------------//
+    // All portrait sizes
+    @media (orientation: portrait) {
+      width: 90%;
+      //justify-content: space-around;
+    }
+
+    //------------------------- Landscape: -------------------------//
+    // All landscape sizes
+    @media (orientation: landscape) {
+      //justify-content: space-between;
+    }
+
+    &-col {
+      margin: 5px 0;
+    }
+
+    &-logo {
+      align-self: center;
+      justify-content: center;
+      justify-items: center;
+      @include col(3.5);
+      //------------------------- Portraits: -------------------------//
+      // All portrait sizes
+      @media (orientation: portrait) {
+        @include col(3.5);
+      }
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        @include col(2.1);
+      }
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        @include col(2.1);
+      }
+
+      & img {
+        width: 100%;
+      }
+
+      & .rating {
+        margin: 10px auto 0;
+        @include col(7);
+        opacity: 0.62;
+
+      }
+    }
+
+    &-texts {
+      color: $texts_color;
+      font-family: $texts_fontFamily;
+      font-weight: $texts_fontWeight;
+      text-align: center;
+      line-height: 1.3;
+      order: 12;
+      margin: 0.5em auto 0;
+      @include responsive-font(1.5vw, 17px, 50px);
+      //------------------------- Portraits: -------------------------//
+
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        @include col(5);
+        order: initial;
+
+      }
+
+
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        @include col(4.5);
+        order: initial;
+        @include responsive-font(1.5vw, 15px, 15px);
+      }
+      // Extra Large devices (large desktops, 1200px and up)
+      @media (min-width: 1200px) {
+
+      }
+
+    }
+
+    &-btnBlock {
+      order: initial;
+      cursor: pointer;
+      height: fit-content;
+      z-index: 30;
+      //------------------------- Portraits: -------------------------//
+      // All portrait sizes
+      @media (orientation: portrait) {
+        @include col(7.5);
+        //padding: 1em 0;
+      }
+      // Small tablet devices (portrait tablets, 601px and up)
+      @media (orientation: portrait) and (min-width: 600px) {
+        @include col(4);
+        padding: 0 1em;
+      }
+      //------------------------- Landscape: -------------------------//
+      // All landscape sizes
+      @media (orientation: landscape) {
+        @include col(4);
+        padding: 0 1em;
+      }
+      &:hover {
+        -webkit-animation: jello-horizontal 0.9s both;
+        animation: jello-horizontal 0.9s both;
+      }
+      & .btnCover {
+        background-color: $btn_bgColor;
+        color: $btn_color;
+        font-family: $btn_fontFamily;
+        font-weight: $btn_fontWeight;
+        padding: 11px 5px;
+
+        & .textBox {
+          @include col(6);
+          // Small tablet devices (portrait tablets, 601px and up)
+          @media (orientation: portrait) and (min-width: 600px) {
+            @include col(6);
+          }
+          //------------------------- Landscape: -------------------------//
+          // All landscape sizes
+          @media (orientation: landscape) {
+            @include col(8);
+          }
+        }
+      }
+
+    }
+
+
+    & .terms {
+      position: relative;
+      text-align: left;
+      border-top: 1px solid #717275;
+      order: 12;
+      @include col(12);
+      padding: 5px 0;
+
+
+      &-short {
+        line-height: 1;
+        &-button {
+          color: $terms_color;
+          margin-right: 5px;
+          cursor: pointer;
+          @include col(1);
+          align-self: center;
+          @include responsive-font(1.5vw, 24px, 24px);
+          // Small tablet devices (portrait tablets, 601px and up)
+          @media (orientation: portrait) and (min-width: 600px) {
+            @include col(0.7);
+
+          }
+
+          //------------------------- Landscape: -------------------------//
+          // All landscape sizes
+          @media (orientation: landscape) {
+            @include col(0.5);
+            @include responsive-font(1.5vw, 20px, 20px);
+          }
+
+        }
+
+        &-text {
+          @include col('auto');
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          color: $terms_color;
+          font-size: 0.8em;
+          align-self: center;
+          line-height: 1.3;
+          // Medium devices (portrait tablets, 768px and up)
+          @media (orientation: portrait) and (min-width: 760px) {
+            font-size: 0.9em;
+          }
+          //------------------------- Landscape: -------------------------//
+          // Extra Large devices (large desktops, 1200px and up)
+          @media (min-width: 1200px) {
+            font-size: 0.75em;
+          }
+        }
+      }
+
+      &-long {
+        z-index: 50;
+        position: absolute;
+        width: 97%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        background-color: #ffffff;
+        -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
+        padding: 15px 13px;
+
+        &-text {
+          color: #282828;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 400;
+          font-size: 0.8em;
+          // Medium devices (portrait tablets, 768px and up)
+          @media (orientation: portrait) and (min-width: 760px) {
+            padding: 0 5px;
+          }
+        }
+
+        &-closeBtn {
+          position: absolute;
+          cursor: pointer;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          color: #717275;
+          line-height: 0.5;
+          right: 7px;
+          top: 7px;
+          font-size: 35px;
+        }
+      }
+    }
+
+
+  }
+
+
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-3-27 14:29:41
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation jello-horizontal
+ * ----------------------------------------
+ */
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+

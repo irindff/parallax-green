@@ -1,0 +1,46 @@
+
+.starsRating {
+  width: 100%;
+  display: flex;
+  &  div{
+    display: inline-flex !important;
+  }
+  .star {
+    position: relative;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    top: 1px;
+    color: #ffe853;
+    &:before {
+      content: '\2605';
+    }
+    &::before {
+      content: '\2605';
+    }
+    &-empty {
+      color: #95a1a5;
+    }
+    &-half {
+      &:before {
+        position: relative;
+        z-index: 9;
+        width: 50.1%;
+        display: block;
+        overflow: hidden;
+      }
+
+      &:after {
+        content: "\2605";
+        position: absolute;
+        z-index: 8;
+        color: #95a1a5;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+

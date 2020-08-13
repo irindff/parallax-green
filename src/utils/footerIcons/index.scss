@@ -1,0 +1,67 @@
+@mixin col($num) {
+  flex: 0 0 8.33333%*$num;
+  max-width: 8.33333%*$num;
+  flex-shrink: 1;
+}
+
+* {
+  padding: 0;
+  margin: 0
+}
+
+ .cursor {
+  cursor: pointer;
+}
+
+.logosBox {
+  display: flex;
+  flex-wrap: wrap;
+  @include col(10);
+  align-items: center;
+  justify-content: center;
+  margin: 0.25rem auto 0.5rem;
+  // Small devices (landscape phones, 480 and up)
+  @media (orientation: landscape) and (min-width: 480px) {
+    @include col(7);
+  }
+  // Small devices (landscape phones, 576px and up)
+  @media (orientation: landscape) and (min-width: 576px) {
+    @include col(5);
+  }
+
+  // Medium devices (portrait tablets, 430px and up)
+  @media (orientation: portrait) and (min-width: 430px) {
+    @include col(8);
+  }
+
+  // Medium devices (landscape tablets and desktops, 992px and up)
+  @media (orientation: landscape) and (min-width: 950px) {
+    @include col(4);
+  }
+  // Extra large devices (large desktops, 1370px and up)
+  @media (min-width: 1370px) {
+    @include col(3);
+  }
+
+  & .logo1 {
+    @include col(1);
+    padding: 0.25rem;
+  }
+
+  & .logo2 {
+    @include col(2);
+    padding: 0.25rem;
+  }
+
+  & .logo3 {
+    @include col(6);
+    padding: 0.25rem;
+  }
+
+  & .logo4 {
+    @include col(1);
+    padding: 0.25rem;
+  }
+}
+
+
