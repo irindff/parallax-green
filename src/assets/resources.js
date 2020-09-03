@@ -10,7 +10,7 @@ export let resources = {
                 "casinoTerms": "https://topclickguru.com/path/lp.php?trvid=10230&trvx=96cbbd66&var1=0&var2=gala20",
                 "offer_logo": "https://cdn.sharpstar.pro/assets/development/2019_02/ojo_100x60.png",
                 "stars_raiting": "5",
-                "offer_text_1": "GET £10 FREE!!!",
+                "offer_text_1": "GET £10 FREE",
                 "offer_text_2": "up to $600",
                 "offer_text_3": "Register for free at PLAY OJO",
                 "offer_button_text": "Play Now!",
