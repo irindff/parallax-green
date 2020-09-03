@@ -1,5 +1,4 @@
 import React from "react";
-import Http from "../../utils/Http";
 // ---------- Footer Icons  --------------
 import FooterIcons from '../../utils/footerIcons/FooterIcons';
 // ----------------- Style --------------------------
@@ -25,7 +24,7 @@ export default class Footer extends React.Component {
         super(props);
         this.state = {
             open: false,
-            advertisement: this.props.advertisement === "yes" ? true : false,
+            advertisement: this.props.advertisement === "yes",
         };
         this.handleModalWindow = this.handleModalWindow.bind(this);
         this.footerIconsColor = !this.props.footerCommonColor ? false : this.props.footerCommonColor;
@@ -45,19 +44,10 @@ export default class Footer extends React.Component {
             modal_body: ''
         });
         if (!this.state.open) {
-            console.log(modal.url)
-            return new Promise((resolve, reject) => {
-                Http.get(modal.url, {}).then(res => {
-                    res = res[0];
-                    this.setState({
-                        modal_header: res.title.rendered,
-                        modal_body: res.content.rendered
-                    });
-                    resolve()
-                }).catch(e => {
-                    reject(e)
-                })
-            })
+            this.setState({
+                modal_header: modal.title,
+                modal_body: modal.content
+            });
         }
 
     }
@@ -66,6 +56,7 @@ export default class Footer extends React.Component {
     setGambleAware() {
         let gambleAware = {};
         if (this.props.gambleAware !== undefined) {
+            // eslint-disable-next-line array-callback-return
             this.props.gambleAware.map((v) => {
                 if (gl.footer_gambleAware.hasOwnProperty(v)) {
                     gambleAware[v] = {};
@@ -108,7 +99,7 @@ export default class Footer extends React.Component {
                                     <span className="cursor"
                                           onClick={() => this.handleModalTerms(value)}><u>{value.brand}</u></span>
                                     <span>
-                                        {key != (this.props.casinoTerms.length - 1) ? (", ") : (" ")}
+                                        {key !== (this.props.casinoTerms.length - 1) ? (", ") : (" ")}
                                     </span>
                                 </span>
                                 )
@@ -144,7 +135,7 @@ export default class Footer extends React.Component {
     _generateGamble(gambleAware, index) {
         return (
             <div key={index}>
-                <div className="text">{index == 0 ? (this.casinoTerms) : (gambleAware)}</div>
+                <div className="text">{index === 0 ? (this.casinoTerms) : (gambleAware)}</div>
             </div>
         );
     }

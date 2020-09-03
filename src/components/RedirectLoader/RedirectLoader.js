@@ -4,9 +4,6 @@ import './index.scss'
 
 
 export default class RedirectLoader extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

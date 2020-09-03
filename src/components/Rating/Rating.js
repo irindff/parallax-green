@@ -3,9 +3,6 @@ import {Textfit} from 'react-textfit';
 import './index.scss';
 
 export default class Rating extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     isHalfStar(num) {
         let float = !/^[0-9]+$/.test(num);
